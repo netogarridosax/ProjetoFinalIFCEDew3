@@ -1,0 +1,122 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor2);
+}
+
+ul {
+    top: 40px;
+    position: absolute;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+body {
+    background-color: var(--cor5);
+}
+
+.menu {
+    margin-top: 20%;
+    height: 20px;
+}
+
+nav {
+    background-color: rgba(16, 16, 16, 0.5);
+    width: 350px;
+    height: 100%;
+    left: -350px;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+input[type="checkbox"]:checked~nav {
+    transform: translateX(350px);
+}
+
+a {
+    display: block;
+    padding: 20px 5px;
+    color: var(--cor2);
+}
+
+a:hover {
+    background-color: rgba(243, 253, 255, 0.599);
+    color: var(--cor5);
+}
+
+label {
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}
+
+
+.h1 {
+    text-align: center;
+    color: rgb(251, 251, 251);
+    text-shadow: 2px 0px 10px cyan;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+:root {
+    --cor1: yellow;
+    --cor2: white;
+    --cor3: rgba(24, 247, 210, 0.823);
+    --cor4: green;
+    --cor5: black;
+}
+.lista {
+    color: var(--cor2);
+    top: 15%;
+    left: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 70px;
+    justify-content: center;
+    border: 2px solid, var(--cor5);
+    width: 25em;
+    margin-top: 6em;
+}
+
+.imagem {
+    float: left;
+    margin-top: 9em;
+    border: 2px solid;
+    color: var(--cor5);
+    width: 31em;
+    height: 35em;
+    text-align: center;
+}
+
+.logo {
+    text-align: center;
+    /* Centralizar horizontalmente o conteúdo */
+    float: left;
+    margin-top: 4%;
+}
+
+.logo img {
+    max-width: 100%;
+    /* Ajustar a largura máxima da imagem */
+    height: 100px;
+    /* Permitir que a altura seja ajustada automaticamente */
+    /* position: absolute;*/
+}
+
+.footer-text {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: var(--cor2);
+}

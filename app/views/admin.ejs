@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/loginCadastroAdmin.css">
+</head>
+<body>
+    <% include('cabecalho.ejs') %>
+    <h1>Login Admin</h1>
+    <% if (messages.success) { %>
+        <div class="alert alert-success">
+            <%= messages.success %>
+        </div>
+    <% } %>
+    <form action="/admin/login" method="post" onsubmit="return validarFormulario()">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+        <input type="submit" value="Entrar">
+    </form>
+    <script>
+        function validarFormulario() {
+            var nome = document.getElementById('nome').value.trim();
+            var senha = document.getElementById('senha').value.trim();
+
+            if (!nome || !senha) {
+                alert('Por favor, preencha todos os campos.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

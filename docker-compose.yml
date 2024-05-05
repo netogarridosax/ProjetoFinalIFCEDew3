@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  node:
+    build: .
+    env_file: .env
+    ports:
+      - "70:3000"
+    volumes:
+      - ./app:/home/node/app
+      - /home/node/app/node_modules
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb/data:/data/db

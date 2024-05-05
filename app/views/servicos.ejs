@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Serviços</title>
+    <link rel="stylesheet" href="/css/servicos.css">
+</head>
+<body>
+    <% include('cabecalho.ejs') %>
+    <div class="container">
+        <h1>Serviços</h1>
+        <a class="link-adicionar" href="/servicos/criar">Adicionar Novo Serviço</a>
+    </div>
+    <div class="servicos">
+        <% if (servicos.length > 0) { %>
+            <% servicos.forEach(function(servico) { %>
+                <div class="servico-box">
+                    <h3><%= servico.nome %></h3>
+                    <img class="servico-imagem" src="/_img/<%= servico.imagem %>" alt="<%= servico.nome %>">
+                    <p>Preço: R$ <%= servico.preco.toFixed(2) %></p>
+                    <p>Categoria: <%= servico.categoria %></p>
+                    <p>Quantidade: <%= servico.quantidade %></p>
+                    <p>Descrição: <%= servico.descricao %></p>
+                    <div class="actions">
+                        <button class="edit" data-id="<%= servico.id %>">Editar</button>
+                        <button class="delete" data-id="<%= servico.id %>">Excluir</button>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>Nenhum serviço disponível.</p>
+        <% } %>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const editButtons = document.querySelectorAll('.edit');
+            const deleteButtons = document.querySelectorAll('.delete');
+
+            editButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    location.href = '/servicos/editar/' + id;
+                });
+            });
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    if (confirm('Tem certeza que deseja excluir o serviço?')) {
+                        fetch('/servicos/' + id, {
+                            method: 'DELETE'
+                        }).then(response => {
+                            if (response.ok) {
+                                location.reload();
+                            } else {
+                                console.error('Erro ao excluir o serviço.');
+                            }
+                        }).catch(error => {
+                            console.error('Erro ao excluir o serviço:', error);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

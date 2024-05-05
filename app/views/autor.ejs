@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sobre</title>
+    <link rel="stylesheet" href="/css/sobre.css">
+</head>
+<body>
+    <% include('cabecalho.ejs') %>
+    <h2><%= nome %></h2>
+    <section>
+        <h2>Formações</h2>
+        <ul>
+            <% if (formacoes && formacoes.length > 0) { %>
+                <% for (let formacao of formacoes) { %>
+                    <li><%= formacao %></li>
+                <% } %>
+            <% } else { %>
+                <li>Nenhuma formação registrada.</li>
+            <% } %>
+        </ul>
+    </section>
+    <section>
+        <h2>Experiências profissionais</h2>
+        <ul>
+            <% if (experiencias && experiencias.length > 0) { %>
+                <% for (let experiencia of experiencias) { %>
+                    <li><%= experiencia %></li>
+                <% } %>
+            <% } else { %>
+                <li>Nenhuma experiência profissional registrada.</li>
+            <% } %>
+        </ul>
+    </section>
+</body>
+</html>

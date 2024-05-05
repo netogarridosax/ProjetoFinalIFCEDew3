@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    top: 40px;
+    position: absolute;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+body {
+    background-color: rgb(10, 10, 10);
+}
+
+.menu {
+    margin-top: 20%;
+    height: 20px;
+}
+
+nav {
+    background-color: rgba(16, 16, 16, 0.5);
+    width: 350px;
+    height: 100%;
+    left: -350px;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+input[type="checkbox"]:checked~nav {
+    transform: translateX(350px);
+}
+
+
+a {
+    display: block;
+    padding: 20px 5px;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: rgba(243, 253, 255, 0.599);
+    color: black;
+}
+
+label {
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}
+
+
+#h1 {
+    text-align: center;
+    color: rgb(251, 251, 251);
+    text-shadow: 2px 0px 10px cyan;
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 15px;
+}
+
+
+
+#p {
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    float: left;
+    height: 100px;
+    margin-top: 45px;
+}
+
+.grid-container {
+    display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 100px;
+    padding: 200px 150px 70px 5px;
+    width: auto;
+    line-height: 40px;
+}
+
+.caixa {
+    /*border: 10px solid, rgb(249, 247, 247);*/
+    text-align: center;
+    background-color: chocolate;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+#img {
+    border-radius: 50px;
+    margin-top: 5%;
+}
+h2{
+    text-align: center;
+    color: white;
+}
+
+
+.footer-text {
+    position: fixed;
+    bottom: 0;
+    /*left: 0;*/
+    width: 100%;
+    color: white;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Serviço</title>
+    <link rel="stylesheet" href="/css/editarServico.css">
+</head>
+<body>
+    <% include('cabecalho.ejs') %>
+    <div class="container">
+        <h1>Editar Serviço</h1>
+        <div>
+            <% if (success) { %>
+                <div class="alert alert-success">
+                    <%= success %>
+                </div>
+            <% } %>
+            <% if (error) { %>
+                <div class="alert alert-danger">
+                    <%= error %>
+                </div>
+            <% } %>
+        </div>        
+        <form id="editar-servico-form" action="/servicos/<%= servico._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<%= servico.id %>">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="<%= servico.nome %>" required>
+            <label for="categoria">Categoria:</label>
+            <input type="text" id="categoria" name="categoria" value="<%= servico.categoria %>">
+            <label for="preco">Preço:</label>
+            <input type="number" id="preco" name="preco" value="<%= servico.preco %>" min="0" step="0.01" required>
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" name="quantidade" value="<%= servico.quantidade %>" min="0" required>
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" required><%= servico.descricao %></textarea>
+            <label for="imagem">Imagem:</label>
+            <input type="file" id="imagem" name="imagem" accept="image/*">
+            <button class="btn-editar" type="submit">Salvar</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var formulario = document.getElementById('editar-servico-form');
+            formulario.addEventListener('submit', function(event) {
+                if (!formulario.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                formulario.classList.add('was-validated');
+            });
+        });
+    </script>
+</body>
+</html>

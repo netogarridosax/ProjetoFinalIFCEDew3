@@ -1,0 +1,184 @@
+* {
+   padding: 0;
+   margin: 0;
+ }
+
+ a {
+   text-decoration: none;
+   color: white;
+ }
+
+ body {
+   /*font-family: Arial;*/
+   background-size: cover;
+   min-height: 100vh;
+   background-repeat: no-repeat;
+   background-image: url("https://blog.alterdata.com.br/wp-content/uploads/2021/07/softwareparaoficinamecanica.jpeg");
+ }
+
+ .menu {
+   margin-top: 20%;
+   height: 20px;
+ }
+
+ ul {
+   top: 40px;
+   position: absolute;
+   width: 100%;
+ }
+
+ input[type="checkbox"] {
+   display: none;
+ }
+
+ nav {
+   background-color: rgba(16, 16, 16, 0.5);
+   width: 350px;
+   height: 100%;
+   left: -350px;
+   position: absolute;
+   transition: all 0.5s;
+ }
+
+ input[type="checkbox"]:checked~nav {
+   transform: translateX(350px);
+ }
+
+ a {
+   display: block;
+   padding: 20px 5px;
+   color: white;
+ }
+
+ a:hover {
+   background-color: rgba(243, 253, 255, 0.599);
+   color: black;
+ }
+
+ label {
+   padding: 15px;
+   position: absolute;
+   z-index: 1;
+ }
+
+ :root {
+   --color1: white;
+   --color2: rgb(89, 225, 246);
+   --color3: black;
+ }
+
+ #h1 {
+   text-align: center;
+   font-size: 80px;
+   position: absolute;
+   color: var(--color1);
+   font-family: 'Orbitron', sans-serif;
+   text-shadow: 2px 0px 10px cyan;
+   top: 73%;
+   left: 30%;
+   right: 30%;
+   transform: translateX(-10%) translateY(-20%);
+   margin-top: -5%;
+ }
+
+ #article {
+   border-radius: 20px;
+   border: 2px solid;
+   color: var(--color1);
+   text-align: center;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   width: 25em;
+   height: 30em;
+   background-image: url("https://prd-us-brc-wapp-01.azurewebsites.net/content/images/2020/11/alinhamento-e-balanceamento-saiba-para-que-servem-e-quando-fazer.jpg");
+
+ }
+
+ #tamanhoDaLetra {
+   font-size: 2em;
+
+ }
+
+ h1,
+ div {
+   color: var(--color2);
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   line-height: 2em;
+   border-radius: 20px;
+ }
+
+ h2 {
+   color: var(--color1);
+
+ }
+
+ h4 {
+   color: var(--color1);
+ }
+
+ h5 {
+   color: var(--color1);
+ }
+
+
+ #div {
+   border: 2px solid;
+   color: var(--color2);
+   width: 16em;
+   height: 8em;
+   text-align: center;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   background-color: rgba(88, 86, 86, 0.364);
+ }
+
+ #targeta-preta {
+   width: 25em;
+   height: 45px;
+   background-color: var(--color3);
+   /*padding: 4em;*/
+   padding-top: 9em;
+ }
+
+ .logo {
+   text-align: center;
+   float: left;
+   margin-top: 4%;
+ }
+
+ .logo img {
+   max-width: 100%;
+   height: 100px;
+ }
+
+ section {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 20px;
+   padding: 300px 170px 70px 5px;
+   width: auto;
+   line-height: 30px;
+ }
+
+ article {
+   width: 30px;
+ }
+
+ /*.container {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+  margin-top: 20%;
+  align-items: stretch;
+  margin-bottom: 1%;
+  justify-content: space-evenly;
+}*/
+
+ .footer-text {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   color: white;
+ }

@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    font-family: Arial;
+    background-size: cover;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-image: url("https://images.pexels.com/photos/4488637/pexels-photo-4488637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-color: rgb(10, 10, 10);
+}
+
+ul {
+    top: 40px;
+    position: absolute;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.menu {
+    margin-top: 20%;
+    height: 20px;
+}
+
+nav {
+    background-color: rgba(16, 16, 16, 0.5);
+    width: 350px;
+    height: 100%;
+    left: -350px;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+input[type="checkbox"]:checked ~ nav {
+    transform: translateX(350px);
+}
+
+a {
+    display: block;
+    padding: 20px 5px;
+    color: white;
+}
+
+a:hover {
+    background-color: rgba(243, 253, 255, 0.599);
+    color: black;
+}
+
+label {
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}
+
+.logo {
+    text-align: center;
+    float: left;
+    margin-top: 4%;
+}
+
+.logo img {
+    max-width: 100%;
+    height: 100px;
+}
+
+#h1 {
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'form';
+    gap: 0px;
+    padding: 300px 170px 70px 150px;
+    width: auto;
+}
+
+.caixa {
+    background-color: rgb(245, 117, 5);
+    padding: 1px;
+    color: rgb(10, 10, 10);
+    margin-top: 5%;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+}
+
+form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer-text {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NG CAR SERVICE</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <% include('cabecalho.ejs') %>
+    <div id="app">
+        <div class="container">
+            <h1>Confira nossos serviços!</h1>
+            <div class="servicos">
+                <% if (servicos.length === 0) { %>
+                    <p>Nenhum serviço disponível no momento.</p>
+                <% } else { %>
+                    <% servicos.forEach(servico => { %>
+                        <div class="servico-box"> 
+                            <h3><%= servico.nome %></h3>
+                            <img class="servico-imagem" src="/_img/<%= servico.imagem %>" alt="<%= servico.nome %>">
+                            <p>Preço: R$ <%= servico.preco.toFixed(2) %></p>
+                            <p>Categoria: <%= servico.categoria %></p>
+                            <p>Quantidade: <%= servico.quantidade %></p>
+                            <p>Descrição: <%= servico.descricao %></p>
+                            <div class="actions">
+                                <form action="/adicionar-ao-carrinho/<%= servico._id %>" method="post">
+                                    <button type="submit">Adicionar ao Carrinho</button>
+                                </form>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } %>
+            </div>
+            <div class="carrinho" v-if="carrinho.length > 0">
+                <h3>Carrinho de Compras</h3>
+                <ul>
+                    <li v-for="(item, index) in carrinho" :key="index">
+                        {{ item.nome }} - R$ {{ item.preco.toFixed(2) }}
+                    </li>
+                </ul>
+                <div>
+                    <h3>Total: R$ {{ total.toFixed(2) }}</h3>
+                    <button @click="finalizarCompra">Finalizar Compra</button>
+                </div>
+            </div>
+            <div v-else>
+                <p>O carrinho está vazio.</p>
+            </div>
+        </div>
+    </div>    
+    <script type="module">
+        Vue.createApp({
+            data() {
+                return {
+                    servicos: [],
+                    carrinho: [],
+                    total: 0
+                };
+            },
+            methods: {
+                adicionarAoCarrinho(servico) {
+                    this.carrinho.push(servico);
+                    this.calcularTotal();
+                },
+                calcularTotal() {
+                    this.total = this.carrinho.reduce((total, servico) => total + servico.preco, 0);
+                },
+                finalizarCompra() {
+                    alert('Compra finalizada!');
+                    this.carrinho = [];
+                    this.total = 0;
+                }
+            },
+            mounted() {
+                fetch('/servicos')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.servicos = data;
+                    })
+                    .catch(error => {
+                        console.error('Erro ao carregar serviços:', error);
+                    });
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
